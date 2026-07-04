@@ -89,7 +89,7 @@ const projects = [
         links: [
             { text: "✦ Itch.io", url: "https://samurainyak.itch.io/the-lost-palette" }
         ],
-        video: "assets/videos/TheLostPalette.mp4" // ruta a tu video local
+        video: "assets/videos/TheLostPalette.mp4" 
     },
     {
         title: "Crazed Potato",
@@ -103,7 +103,7 @@ const projects = [
         links: [
             { text: "✦ Itch.io", url: "https://mmsiak.itch.io/crazed-potato" },
         ],
-        video: "assets/videos/CrazedPotato.mp4"
+        video: "assets/videos/CrazedPotato.mp4"//Se corrige ruta
     },
     {
         title: "Toxic Delicacies (Upcoming)",
