@@ -103,7 +103,7 @@ const projects = [
         links: [
             { text: "✦ Itch.io", url: "https://mmsiak.itch.io/crazed-potato" },
         ],
-        video: "assets/videos/crazedpotato.mp4"
+        video: "assets/videos/CrazedPotato.mp4"
     },
     {
         title: "Toxic Delicacies (Upcoming)",
