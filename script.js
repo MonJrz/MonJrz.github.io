@@ -291,7 +291,7 @@ if (backToTopBtn) {
 // =============================================
 // 4. CARRUSEL DE PROYECTOS DESTACADOS
 // =============================================
-// Datos de los proyectos (¡edita con tus juegos!)
+
 const descriptionEl = document.getElementById('featuredDescription');
 const projects = [
     {
@@ -306,7 +306,7 @@ const projects = [
         links: [
             { text: "✦ Itch.io", url: "https://samurainyak.itch.io/the-lost-palette" }
         ],
-        video: "assets/videos/TheLostPalette.mp4" // ruta a tu video local
+        video: "assets/videos/TheLostPalette.mp4" 
     },
     {
         title: "Crazed Potato",
@@ -338,7 +338,7 @@ const projects = [
     }
 ];
 
-// Referencias a los elementos del DOM
+
 const thumbnails = document.querySelectorAll('.thumbnail');
 const videoElement = document.getElementById('featuredVideo');
 const titleEl = document.getElementById('featuredTitle');
@@ -346,7 +346,6 @@ const tagsContainer = document.getElementById('featuredTags');
 const contributionsList = document.getElementById('featuredContributions');
 const linksContainer = document.getElementById('featuredLinks');
 
-// Función para actualizar el carrusel
 function updateFeatured(index) {
     const project = projects[index];
     if (!project) return;
@@ -430,4 +429,4 @@ if (videoElement && videoPlaceholder) {
     }
 }
 console.log('✨ Portfolio y carrusel listos ✨');
->>>>>>> 6d7b3b8f94052f99c38d329a3c83098bd3bb39a7
+
