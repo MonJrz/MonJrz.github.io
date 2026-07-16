@@ -78,9 +78,23 @@ if (backToTopBtn) {
 // Datos de los proyectos (¡edita con tus juegos!)
 const descriptionEl = document.getElementById('featuredDescription');
 const projects = [
+        {
+        title: "Oil Be Back",
+        description: "Endless runner that takes place in a water park, where the goal is to survive an enemy that must never come into contact with water: a giant drop of oil.",
+        tags: ["Unity", "C#", "Game Mechanics", "3D Art"],
+        contributions: [
+            "Built the spawning system",
+            "Enemy 3D modeling",
+            "Contributed with project integration"
+        ],
+        links: [
+            { text: "✦ Itch.io", url: "https://krostgames.itch.io/oil-be-back" }
+        ],
+        video: "assets/videos/OilBeBack.mp4"
+    },
     
     {
-        title: "Toxic Delicacies (Upcoming)",
+        title: "Toxic Delicacies",
         description: "A first-person inspection and memory game set in a post-apocalyptic world where mutated food has become the new normal. Identify distorted ingredients, verify each ration against the official catalog, and avoid approving dangerous combinations. Every mistake forces you to consume the meal—and in this world, toxicity comes from the combination, not the ingredients themselves.",
         tags: ["Unity", "C#", "Game Mechanics"],
         contributions: [
@@ -89,9 +103,9 @@ const projects = [
             "Contributed with 2D art"
         ],
         links: [
-            { text: "✦ Itch.io", url: "#" }
-        ]
-        //video: "assets/videos/toxicdelicacies.mp4"
+            { text: "✦ Itch.io", url: "https://mmsiak.itch.io/toxic-delicacies" }
+        ],
+        video: "assets/videos/ToxicDelicacies.mp4"
     },
     {
         title: "Crazed Potato",
