@@ -27,7 +27,6 @@ if (cards.length) {
             }
         });
     }, { threshold: 0.1 });
-
     cards.forEach((card, index) => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(30px)';
