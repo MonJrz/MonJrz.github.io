@@ -1,5 +1,22 @@
 const projects = [
   {
+    title: 'Deepre',
+    engine: 'Unity',
+    description: 'A 2D game about Lucila, a girl experiencing depression who is trapped inside her own mind during a dream-like free fall. As positive and negative words appear around her, the player must guide Lucila toward hopeful thoughts while avoiding harmful ones.',
+    tags: ['Character Design', 'UI Design', 'Character Animation'],
+    contributions: [ 'Designed the main character, Lucila.', 'Created the game’s visual UI, using a minimalist, high-contrast interface that keeps the player’s focus on Lucila and the emotional experience.', 'Animated the character frame by frame' ],
+    links: [{ text: '✦ Itch.io', url: 'https://daniel-b-m.itch.io/deepre' }],
+    media: [
+      { type: 'image', src: 'assets/videos/Deepre.gif', caption: 'Gameplay overview' },
+      { type: 'image', src: 'assets/images/Deepre/DeepreTitle.png', caption: 'Title' },
+      {type: 'image', src: 'assets/images/Deepre/LucilaAnim.gif', caption: 'Lucila Animation' },
+      { type: 'image', src: 'assets/images/Deepre/UIElements1.png', caption: 'UI Elements 1' },
+      { type: 'image', src: 'assets/images/Deepre/UIElements2.png', caption: 'UI Elements 2' },
+    ],
+    challenges: [ 'Creating 2D animation frame by frame.' ],
+    solutions: [ 'Constructed the character using separate layers so each body part could be animated independently, reducing the need to redraw every frame while maintaining smooth, expressive movement.' ]
+  },
+  {
     title: 'Oil Be Back',
     engine: 'Unity',
     description: 'Endless runner that takes place in a water park, where the goal is to survive an enemy that must never come into contact with water: a giant drop of oil.',
@@ -7,11 +24,12 @@ const projects = [
     contributions: ['Built the spawning system', 'Enemy 3D modeling', 'Contributed with project integration'],
     links: [{ text: '✦ Itch.io', url: 'https://krostgames.itch.io/oil-be-back' }],
     media: [
-      { type: 'video', src: 'assets/videos/OilBeBack.mp4', caption: 'Gameplay trailer' },
-      { type: 'image', src: 'assets/images/OilBeBack.png', caption: 'Main splash art' }
+      { type: 'image', src: 'assets/videos/OilBeBack.gif', caption: 'Gameplay trailer' },
+      { type: 'image', src: 'assets/images/OilBeBack/EnemyModel.gif', caption: 'Enemy' }
     ],
     challenges: ['Very limited production time (2.5 days).', 'Movement scripts were using different coordinate directions, causing inconsistent object behavior.'],
-    solutions: ['We chose a simple game concept and I broke the project down into small, manageable tasks.', 'I coordinated with my teammates to agree on the correct movement directions and updated the scripts accordingly.']
+    solutions: ['We chose a simple game concept and I broke the project down into small, manageable tasks.', 'I coordinated with my teammates to agree on the correct movement directions and updated the scripts accordingly.'],
+    updates: ['Improved enemy design']
   },
   {
     title: 'Toxic Delicacies',
@@ -21,8 +39,9 @@ const projects = [
     contributions: ['Built the spawning system', 'Implemented a click-based selection system', 'Contributed with 2D art'],
     links: [{ text: '✦ Itch.io', url: 'https://mmsiak.itch.io/toxic-delicacies' }],
     media: [
-      { type: 'video', src: 'assets/videos/ToxicDelicacies.mp4', caption: 'Gameplay overview' },
-      { type: 'image', src: 'assets/images/ToxicDelicacies.png', caption: 'Title screen' }
+      { type: 'image', src: 'assets/videos/ToxicDelicacies.gif', caption: 'Gameplay overview' },
+      { type: 'image', src: 'assets/images/ToxicDelicacies/ToxicDelicacies.png', caption: 'Title Screen' },
+      { type: 'image', src: 'assets/images/ToxicDelicacies/PurpleSalad.png', caption: 'Purple Salad' }
     ],
     challenges: ['Creating endless gameplay by spawning ingredients without overlapping or appearing in invalid positions.'],
     solutions: ['Instead of spawning new objects every round, I placed all ingredients in predefined locations and kept them disabled. When a new round started, I simply activated the required objects, making them visible on the plate.']
@@ -35,8 +54,13 @@ const projects = [
     contributions: ['Built the game mechanics', 'Created 1 puzzle level', 'Designed the art'],
     links: [{ text: '✦ Itch.io', url: 'https://mmsiak.itch.io/crazed-potato' }],
     media: [
-      { type: 'video', src: 'assets/videos/CrazedPotato.mp4', caption: 'Mechanics showcase' },
-      { type: 'image', src: 'assets/images/SproutedPotato.png', caption: 'Character concept art' }
+      { type: 'image', src: 'assets/videos/CrazedPotato.gif', caption: 'Mechanics showcase' },
+      { type: 'image', src: 'assets/images/CrazedPotato/SproutedPotato.png', caption: 'Crazed character concept art' },
+      { type: 'image', src: 'assets/images/CrazedPotato/Potato.png', caption: 'Character concept art' },
+      { type: 'image', src: 'assets/images/CrazedPotato/Greenhouse.png', caption: 'Greenhouse' },
+      { type: 'image', src: 'assets/images/CrazedPotato/Flag.png', caption: 'Flag' },
+      { type: 'image', src: 'assets/images/CrazedPotato/Pesticide.png', caption: 'Pesticide' },
+      { type: 'image', src: 'assets/images/CrazedPotato/Sky.png', caption: 'Background' }
     ],
     challenges: ['Developing a complete game on my own within a limited timeframe.', 'Combining multiple player abilities.'],
     solutions: ["I kept the game's mechanics and art style intentionally simple to ensure the project was completed on time.", 'I separated player functionality into different components and interfaces, making the code easier to read and maintain.']
@@ -49,8 +73,8 @@ const projects = [
     contributions: ['Player movement and damage logic', 'Enemy movement and damage logic', 'Programming and integration of the UI elements'],
     links: [{ text: '✦ Itch.io', url: 'https://samurainyak.itch.io/the-lost-palette' }],
     media: [
-      { type: 'video', src: 'assets/videos/TheLostPalette.mp4', caption: 'Level gameplay' },
-      { type: 'image', src: 'assets/images/TheLostPalette.png', caption: 'Cover art' }
+      { type: 'image', src: 'assets/videos/TheLostPalette.gif', caption: 'Level gameplay' },
+      { type: 'image', src: 'assets/images/TheLostPalette/TheLostPalette.png', caption: 'Gameplay screen' }
     ],
     challenges: ['The character would get stuck against walls or platforms while jumping.', 'The player could keep jumping indefinitely without touching the ground.'],
     solutions: ['I assigned a frictionless physics material to the player so the character would slide smoothly against surfaces.', 'I implemented a ground detection system (isGrounded) that only allowed jumping while the player was on the ground. I also added a jump counter to prevent unlimited jumps.']
@@ -72,6 +96,7 @@ const elements = {
   caption: getElement('mediaCaption'),
   challenges: getElement('featuredChallenges'),
   solutions: getElement('featuredSolutions'),
+  updates: getElement('featuredUpdates'),
   gallery: getElement('featuredGallery'),
   card: getElement('projectCard'),
   backToTop: getElement('backToTop')
@@ -152,6 +177,16 @@ function renderGallery(project) {
   elements.gallery.replaceChildren(fragment);
 }
 
+function renderUpdates(updates) {
+  const hasUpdates = Array.isArray(updates) && updates.length > 0;
+  replaceChildrenWithItems(
+    elements.updates,
+    hasUpdates ? updates : ['No updates available yet. Check back soon!'],
+    'li'
+  );
+  elements.updates?.classList.toggle('is-placeholder', !hasUpdates);
+}
+
 function syncProjectCardHeight() {
   if (!elements.card || !cardInner) return;
   const activeSide = elements.card.classList.contains('flipped') ? cardBack : cardFront;
@@ -172,6 +207,7 @@ function updateFeatured(index) {
   replaceChildrenWithItems(elements.contributions, project.contributions, 'li');
   replaceChildrenWithItems(elements.challenges, project.challenges, 'li');
   replaceChildrenWithItems(elements.solutions, project.solutions, 'li');
+  renderUpdates(project.updates);
   renderLinks(project.links);
   renderMedia(project);
   renderGallery(project);

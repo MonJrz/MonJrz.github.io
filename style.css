@@ -966,7 +966,7 @@ body {
 .thumbnail img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
 }
 
@@ -1212,6 +1212,7 @@ body {
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     transform-style: preserve-3d;
+    padding-bottom: 6rem;
 }
 
 .back-header {
@@ -1260,6 +1261,17 @@ body {
     color: #ff6b9d;
 }
 
+.back-list.is-placeholder li,
+.project-updates.is-placeholder li {
+    color: rgba(255, 255, 255, 0.38);
+    font-style: italic;
+}
+
+.back-list.is-placeholder li::before,
+.project-updates.is-placeholder li::before {
+    color: rgba(255, 255, 255, 0.3);
+}
+
 .featured-media-column {
     display: flex;
     flex-direction: column;
@@ -1305,6 +1317,12 @@ body {
     align-self: flex-start;
 }
 
+#flipCardBackBtn {
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+}
+
 .featured-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -1315,7 +1333,7 @@ body {
 .featured-gallery video {
     width: 100%;
     border-radius: 16px;
-    object-fit: cover;
+    object-fit: contain;
     min-height: 100px;
 }
 
