@@ -227,6 +227,7 @@ body {
     width: 100%;
 }
 
+#profile,
 #work,
 #levels,
 #about,
@@ -367,6 +368,10 @@ body {
 
 .title-gif--compact {
     height: 52px;
+}
+
+.title-gif--name {
+    height: 72px;
 }
 
 .section-subtitle {
@@ -585,12 +590,6 @@ body {
     color: rgba(255, 255, 255, 0.6);
     border: 2px solid rgba(255, 255, 255, 0.04);
     transition: all 0.3s;
-}
-
-.skill-badge:hover {
-    border-color: #ff6b9d;
-    color: #ffffff;
-    transform: scale(1.05);
 }
 
 .about-image {
@@ -1011,9 +1010,14 @@ body {
     .title-gif--compact {
         height: 39px;
     }
+
+    .title-gif--name {
+        height: 54px;
+    }
 }
 
 @media (max-width: 768px) {
+    #profile,
     #work,
     #levels,
     #about,
@@ -1095,6 +1099,10 @@ body {
 
     .title-gif--compact {
         height: 20px;
+    }
+
+    .title-gif--name {
+        height: 27px;
     }
 
     .container {
@@ -1316,4 +1324,15 @@ body {
     font-weight: 900;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+}
+
+/* Hover shared with the project website button */
+.hero-buttons .btn:hover,
+.featured-section .btn:hover,
+.featured-section button:hover {
+    background: rgba(255, 107, 157, 0.15);
+    color: #fff;
+    border-color: #ff6b9d;
+    box-shadow: none;
+    transform: none;
 }
