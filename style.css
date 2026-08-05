@@ -18,6 +18,17 @@ body {
     line-height: 1.6;
 }
 
+.hero .subtitle,
+.section-subtitle,
+.level-card h3,
+.about-text h2,
+.featured-info h3,
+.featured-info-heading,
+.back-header h3,
+.back-block h4 {
+    font-family: 'Sour Gummy', 'Nunito', 'Segoe UI', system-ui, sans-serif;
+}
+
 /* ----- FUENTE DESDE GOOGLE FONTS (incluir en HTML) ----- */
 /* En el <head> de index.html agrega:
    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -265,7 +276,7 @@ body {
 .hero .subtitle {
     font-size: 1.5rem;
     color: rgba(255, 255, 255, 0.7);
-    font-weight: 600;
+    font-weight: 200;
     margin-bottom: 0.5rem;
 }
 
@@ -392,6 +403,7 @@ body {
     text-align: center;
     color: rgba(255, 255, 255, 0.4);
     font-size: 1.1rem;
+    font-weight: 200;
     margin-bottom: 3rem;
 }
 
@@ -466,7 +478,7 @@ body {
 
 .level-card h3 {
     font-size: 1.6rem;
-    font-weight: 800;
+    font-weight: 200;
     margin-bottom: 0.4rem;
     color: #fff;
 }
@@ -575,7 +587,7 @@ body {
 
 .about-text h2 {
     font-size: 2.2rem;
-    font-weight: 800;
+    font-weight: 200;
     margin-bottom: 1.5rem;
     position: relative;
 }
@@ -880,7 +892,7 @@ body {
 
 .featured-info h3 {
     font-size: 1.8rem;
-    font-weight: 800;
+    font-weight: 200;
     color: #fff;
     margin-bottom: 0.2rem;
 }
@@ -1213,7 +1225,7 @@ body {
 
 .back-header h3 {
     font-size: 1.8rem;
-    font-weight: 800;
+    font-weight: 200;
     color: #fff;
 }
 
@@ -1223,7 +1235,7 @@ body {
 
 .back-block h4 {
     font-size: 1.2rem;
-    font-weight: 800;
+    font-weight: 200;
     margin-bottom: 0.75rem;
     color: #ffd93d;
 }
@@ -1334,8 +1346,8 @@ body {
 
 .featured-info-heading {
     color: #ffd93d;
-    font-size: 0.82rem;
-    font-weight: 900;
+    font-size: 1rem;
+    font-weight: 200;
     letter-spacing: 0.08em;
     text-transform: uppercase;
 }
