@@ -326,6 +326,20 @@ body {
     flex-wrap: wrap;
 }
 
+.profile-skills {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    margin: 1.5rem 0;
+}
+
+.work-resume {
+    display: block;
+    width: fit-content;
+    margin: 2rem auto 0;
+}
+
 /* ========================================
    🌍  LEVELS / PROYECTOS (Kirby 64 Style)
    ======================================== */
