@@ -74,7 +74,8 @@ const projects = [
     links: [{ text: '✦ Itch.io', url: 'https://samurainyak.itch.io/the-lost-palette' }],
     media: [
       { type: 'image', src: 'assets/videos/TheLostPalette.gif', caption: 'Level gameplay' },
-      { type: 'image', src: 'assets/images/TheLostPalette/TheLostPalette.png', caption: 'Gameplay screen' }
+      { type: 'image', src: 'assets/images/TheLostPalette/TheLostPalette.png', caption: 'Gameplay screen' },
+      { type: 'image', src: 'assets/images/TheLostPalette/PlayerMovement.gif', caption: 'Player Movement' }
     ],
     challenges: ['The character would get stuck against walls or platforms while jumping.', 'The player could keep jumping indefinitely without touching the ground.'],
     solutions: ['I assigned a frictionless physics material to the player so the character would slide smoothly against surfaces.', 'I implemented a ground detection system (isGrounded) that only allowed jumping while the player was on the ground. I also added a jump counter to prevent unlimited jumps.']
