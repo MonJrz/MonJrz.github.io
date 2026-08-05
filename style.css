@@ -1,4 +1,3 @@
-
 /* ========================================
    🎮  PORTFOLIO: KIRBY 64 + YOSHI'S STORY
    ======================================== */
@@ -153,6 +152,9 @@ body {
    🧭  NAVEGACIÓN
    ======================================== */
 .nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -160,6 +162,8 @@ body {
     margin-bottom: 2rem;
     flex-wrap: wrap;
     gap: 1rem;
+    background: rgba(26, 26, 46, 0.92);
+    backdrop-filter: blur(8px);
     border-bottom: 2px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -190,6 +194,7 @@ body {
     gap: 2rem;
     list-style: none;
     flex-wrap: wrap;
+    padding-left: 1rem;
 }
 
 .nav-links a {
@@ -220,6 +225,13 @@ body {
 
 .nav-links a:hover::after {
     width: 100%;
+}
+
+#work,
+#levels,
+#about,
+#contact {
+    scroll-margin-top: 7rem;
 }
 
 /* ========================================
@@ -261,11 +273,10 @@ body {
     margin: 0 auto 2rem;
     color: rgba(134, 193, 235, 0.55);
     font-size: 1.1rem;
-    
 }
 
 .description span {
-  color: #6bdcff; /* o cualquier color que use tu marca */
+  color: #6bdcff;
   font-weight: 800;
 }
 
@@ -317,6 +328,25 @@ body {
 /* ========================================
    🌍  LEVELS / PROYECTOS (Kirby 64 Style)
    ======================================== */
+.work-section {
+    padding: 4rem 0 2rem;
+}
+
+.work-content {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 2rem 3rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid rgba(255, 255, 255, 0.04);
+    border-radius: 40px;
+}
+
+.work-content p {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 1.1rem;
+}
+
 .section-title {
     font-size: 2.8rem;
     font-weight: 900;
@@ -326,6 +356,17 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+}
+
+.title-gif {
+    display: block;
+    width: auto;
+    height: 64px;
+    margin: 0 auto;
+}
+
+.title-gif--compact {
+    height: 52px;
 }
 
 .section-subtitle {
@@ -559,9 +600,21 @@ body {
     position: relative;
 }
 
+.character-image {
+    width: 426.67px;
+    max-width: 100%;
+    height: auto;
+    animation: floatCharacter 4s ease-in-out infinite;
+}
+
+@keyframes floatCharacter {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
 .about-image-placeholder {
-    width: 260px;
-    height: 260px;
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
     background: linear-gradient(135deg, #ff6b9d, #ffd93d);
     display: flex;
@@ -604,8 +657,8 @@ body {
 }
 
 .contact-icon {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.04);
     border: 2px solid rgba(255, 255, 255, 0.06);
@@ -623,6 +676,12 @@ body {
     border-color: #ff6b9d;
     color: #ffffff;
     box-shadow: 0 10px 30px rgba(255, 107, 157, 0.15);
+}
+
+.contact-icon-image {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
 }
 
 /* ========================================
@@ -752,6 +811,7 @@ body {
     border-radius: 40px;
     padding: 2rem;
     border: 2px solid rgba(255, 255, 255, 0.05);
+    perspective: 1500px;
     transition: all 0.3s;
 }
 
@@ -776,7 +836,8 @@ body {
 
 /* El video ocupa todo el contenedor sin recortarse */
 .featured-video video,
-.featured-video iframe {
+.featured-video iframe,
+.featured-video img {
     position: absolute;
     top: 0;
     left: 0;
@@ -790,6 +851,10 @@ body {
 
 /* Para compatibilidad */
 .featured-video video {
+    object-fit: contain;
+}
+
+.featured-video img {
     object-fit: contain;
 }
 
@@ -925,78 +990,6 @@ body {
     }
 }
 
-/* Miniaturas */
-.featured-thumbnails {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-}
-
-.thumbnail {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    border: 3px solid rgba(255, 255, 255, 0.1);
-    overflow: hidden;
-    cursor: pointer;
-    transition: all 0.3s;
-    padding: 0;
-    background: transparent;
-    flex-shrink: 0;
-}
-
-.thumbnail img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.thumbnail:hover {
-    transform: scale(1.08);
-    border-color: rgba(255, 107, 157, 0.4);
-}
-
-.thumbnail.active {
-    border-color: #ff6b9d;
-    box-shadow: 0 0 20px rgba(255, 107, 157, 0.3);
-    transform: scale(1.1);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .featured-main {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .featured-info h3 {
-        font-size: 1.5rem;
-    }
-
-    .featured-container {
-        padding: 1.5rem;
-    }
-
-    .thumbnail {
-        width: 60px;
-        height: 60px;
-    }
-}
-
-@media (max-width: 480px) {
-    .featured-thumbnails {
-        gap: 0.7rem;
-    }
-
-    .thumbnail {
-        width: 50px;
-        height: 50px;
-    }
-}
-
 /* ========================================
    📱  RESPONSIVE
    ======================================== */
@@ -1010,7 +1003,24 @@ body {
     }
 }
 
+@media (max-width: 900px) {
+    .title-gif {
+        height: 48px;
+    }
+
+    .title-gif--compact {
+        height: 39px;
+    }
+}
+
 @media (max-width: 768px) {
+    #work,
+    #levels,
+    #about,
+    #contact {
+        scroll-margin-top: 9rem;
+    }
+
     .hero h1 {
         font-size: 2.6rem;
     }
@@ -1050,6 +1060,11 @@ body {
     .nav-links {
         justify-content: center;
         gap: 1.5rem;
+        padding-left: 0;
+    }
+
+    .work-content {
+        padding: 2rem;
     }
 
     .section-title {
@@ -1062,13 +1077,26 @@ body {
     }
 
     .contact-icon {
-        width: 50px;
-        height: 50px;
+        width: 70px;
+        height: 70px;
         font-size: 1.4rem;
+    }
+
+    .contact-icon-image {
+        width: 56px;
+        height: 56px;
     }
 }
 
 @media (max-width: 480px) {
+    .title-gif {
+        height: 24px;
+    }
+
+    .title-gif--compact {
+        height: 20px;
+    }
+
     .container {
         padding: 1rem;
     }
@@ -1106,1107 +1134,186 @@ body {
 
 }
 /* ========================================
-   🎮  PORTFOLIO: KIRBY 64 + YOSHI'S STORY
+   🎬 FEATURED PROJECT CARD FLIP + GALLERY
    ======================================== */
 
-/* ----- RESET Y BASE ----- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.project-card-inner {
+    position: relative;
+    width: 100%;
+    perspective: 1500px;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), height 0.35s ease;
 }
 
-body {
-    font-family: 'Nunito', 'Segoe UI', system-ui, sans-serif;
-    background: #1a1a2e;
-    min-height: 100vh;
-    color: #ffffff;
-    overflow-x: hidden;
-    line-height: 1.6;
+.featured-container.flipped .project-card-inner {
+    transform: rotateY(180deg);
 }
 
-/* ----- FUENTE DESDE GOOGLE FONTS (incluir en HTML) ----- */
-/* En el <head> de index.html agrega:
-   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-*/
+.project-card-front,
+.project-card-back {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    width: 100%;
+}
 
-/* ========================================
-   🌌  FONDO ESTRELLADO (Kirby style)
-   ======================================== */
-.stars {
-    position: fixed;
+.project-card-front {
+    position: relative;
+    transform: rotateY(0deg);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.project-card-back {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background: radial-gradient(ellipse at bottom, #1a1a2e 0%, #16213e 100%);
-    z-index: -2;
-    pointer-events: none;
+    box-sizing: border-box;
+    transform: rotateY(180deg);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(8px);
+    border-radius: 40px;
+    padding: 2rem;
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform-style: preserve-3d;
 }
 
-.stars::before,
-.stars::after {
-    content: '';
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    top: -50%;
-    left: -50%;
-    background-image: 
-        radial-gradient(2px 2px at 20px 30px, #eee, transparent),
-        radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
-        radial-gradient(1px 1px at 90px 40px, #fff, transparent),
-        radial-gradient(1px 1px at 160px 120px, rgba(255,255,255,0.7), transparent),
-        radial-gradient(2px 2px at 200px 50px, #eee, transparent);
-    background-size: 200px 200px;
-    animation: twinkle 3s ease-in-out infinite alternate;
-    opacity: 0.5;
-}
-
-.stars::after {
-    background-image: 
-        radial-gradient(1px 1px at 10px 10px, #fff, transparent),
-        radial-gradient(2px 2px at 60px 90px, rgba(255,255,255,0.6), transparent),
-        radial-gradient(1px 1px at 120px 20px, #eee, transparent);
-    background-size: 300px 300px;
-    animation-duration: 4s;
-    animation-delay: 1s;
-}
-
-@keyframes twinkle {
-    0% { opacity: 0.2; }
-    100% { opacity: 0.8; }
-}
-
-/* ----- ESTRELLAS PARPADEANTES (Kirby sparkles) ----- */
-.sparkle {
-    position: fixed;
-    width: 5px;
-    height: 5px;
-    background: #ffd700;
-    border-radius: 50%;
-    box-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;
-    animation: sparkleFloat 4s ease-in-out infinite;
-    pointer-events: none;
-    z-index: -1;
-}
-
-@keyframes sparkleFloat {
-    0%, 100% { 
-        transform: translateY(0) scale(1); 
-        opacity: 0.3; 
-    }
-    50% { 
-        transform: translateY(-20px) scale(1.8); 
-        opacity: 1; 
-    }
-}
-
-/* ----- PLANETAS DECORATIVOS (Kirby style) ----- */
-.planet-decoration {
-    position: fixed;
-    border-radius: 50%;
-    pointer-events: none;
-    opacity: 0.12;
-    z-index: -1;
-}
-
-.planet-decoration:nth-child(1) {
-    width: 300px;
-    height: 300px;
-    top: -100px;
-    right: -100px;
-    background: radial-gradient(circle at 30% 30%, #ff6b9d, #c44a7a);
-    animation: floatPlanet 20s ease-in-out infinite;
-}
-
-.planet-decoration:nth-child(2) {
-    width: 200px;
-    height: 200px;
-    bottom: 50px;
-    left: -50px;
-    background: radial-gradient(circle at 30% 30%, #6bcfff, #4a8fc4);
-    animation: floatPlanet 25s ease-in-out infinite reverse;
-}
-
-.planet-decoration:nth-child(3) {
-    width: 150px;
-    height: 150px;
-    top: 40%;
-    right: 10%;
-    background: radial-gradient(circle at 30% 30%, #ffd93d, #f0a500);
-    animation: floatPlanet 18s ease-in-out infinite 2s;
-}
-
-@keyframes floatPlanet {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    25% { transform: translate(30px, -20px) rotate(5deg); }
-    50% { transform: translate(10px, -40px) rotate(-3deg); }
-    75% { transform: translate(-20px, -10px) rotate(4deg); }
-}
-
-/* ========================================
-   📦  CONTENEDOR PRINCIPAL
-   ======================================== */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1.5rem 2rem 2rem;
-    position: relative;
-}
-
-/* ========================================
-   🧭  NAVEGACIÓN
-   ======================================== */
-.nav {
+.back-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
     gap: 1rem;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.05);
-}
-
-.logo {
-    font-size: 2rem;
-    font-weight: 900;
-    background: linear-gradient(135deg, #ff6b9d, #ffd93d);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    position: relative;
-}
-
-.logo::after {
-    content: '✨';
-    margin-left: 8px;
-    -webkit-text-fill-color: initial;
-    animation: sparkleText 2s ease-in-out infinite;
-}
-
-@keyframes sparkleText {
-    0%, 100% { transform: scale(1) rotate(0deg); }
-    50% { transform: scale(1.3) rotate(20deg); }
-}
-
-.nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
+    margin-bottom: 1.5rem;
     flex-wrap: wrap;
 }
 
-.nav-links a {
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1.1rem;
-    transition: all 0.3s;
-    position: relative;
-    padding: 0.4rem 0;
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #ff6b9d, #ffd93d);
-    transition: width 0.3s;
-    border-radius: 10px;
-}
-
-.nav-links a:hover {
-    color: #ffffff;
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-/* ========================================
-   🚀  HERO (Kirby intro style)
-   ======================================== */
-.hero {
-    text-align: center;
-    padding: 3rem 0 4rem;
-    position: relative;
-}
-
-.hero h1 {
-    font-size: 4rem;
-    font-weight: 900;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-    background: linear-gradient(135deg, #ffd93d, #ff6b9d, #6bcfff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradientShift 5s ease-in-out infinite;
-    background-size: 300% 300%;
-}
-
-@keyframes gradientShift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-}
-
-.hero .subtitle {
-    font-size: 1.5rem;
-    color: rgba(255, 255, 255, 0.7);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.hero .description {
-    max-width: 600px;
-    margin: 0 auto 2rem;
-    color: rgba(134, 193, 235, 0.55);
-    font-size: 1.1rem;
-    
-}
-
-.description span {
-  color: #6bdcff; /* o cualquier color que use tu marca */
-  font-weight: 800;
-}
-
-/* ========================================
-   🎯  BOTONES (Yoshi style - redondeados)
-   ======================================== */
-.btn {
-    display: inline-block;
-    padding: 0.8rem 2.5rem;
-    border-radius: 50px;
-    text-decoration: none;
+.back-header h3 {
+    font-size: 1.8rem;
     font-weight: 800;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-}
-
-.btn-primary {
-    background: linear-gradient(135deg, #ff6b9d, #ff9a76);
     color: #fff;
-    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
 }
 
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(255, 107, 157, 0.5);
+.back-block {
+    margin-bottom: 1.5rem;
 }
 
-.btn-secondary {
-    background: rgba(255, 255, 255, 0.08);
-    color: #fff;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.15);
-}
-
-.btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.18);
-    transform: translateY(-3px);
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-/* ========================================
-   🌍  LEVELS / PROYECTOS (Kirby 64 Style)
-   ======================================== */
-.section-title {
-    font-size: 2.8rem;
-    font-weight: 900;
-    text-align: center;
-    margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, #ffd93d, #ff6b9d);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.section-subtitle {
-    text-align: center;
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 1.1rem;
-    margin-bottom: 3rem;
-}
-
-.levels-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 2.5rem;
-    padding: 1rem 0 2rem;
-}
-
-/* Tarjeta - Hoja de nivel (Kirby) */
-.level-card {
-    background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(8px);
-    border-radius: 30px 30px 30px 30px;
-    padding: 2rem;
-    border: 2px solid rgba(255, 255, 255, 0.06);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: relative;
-    overflow: hidden;
-    cursor: default;
-}
-
-/* Hoja decorativa (Kirby) */
-.level-card::before {
-    content: '🍃';
-    position: absolute;
-    top: -15px;
-    right: -15px;
-    font-size: 5rem;
-    opacity: 0.08;
-    transform: rotate(35deg);
-    pointer-events: none;
-}
-
-/* Borde mágico (Yoshi) */
-.level-card::after {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    border-radius: 32px;
-    background: linear-gradient(135deg, #ff6b9d, #ffd93d, #6bcfff);
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.4s;
-}
-
-.level-card:hover {
-    transform: translateY(-10px);
-    border-color: rgba(255, 107, 157, 0.25);
-    box-shadow: 0 20px 60px rgba(255, 107, 157, 0.08);
-}
-
-.level-card:hover::after {
-    opacity: 0.25;
-}
-
-.level-icon {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    display: inline-block;
-    animation: floatIcon 3s ease-in-out infinite;
-}
-
-@keyframes floatIcon {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(6deg); }
-}
-
-.level-card h3 {
-    font-size: 1.6rem;
+.back-block h4 {
+    font-size: 1.2rem;
     font-weight: 800;
-    margin-bottom: 0.4rem;
-    color: #fff;
-}
-
-.level-tags {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin: 0.5rem 0 1rem;
-}
-
-.level-tags span {
-    background: rgba(255, 255, 255, 0.07);
-    padding: 0.25rem 0.9rem;
-    border-radius: 50px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.level-card p {
-    color: rgba(255, 255, 255, 0.55);
-    margin-bottom: 1rem;
-    line-height: 1.7;
-}
-
-.level-contributions {
-    list-style: none;
-    margin: 1rem 0;
-}
-
-.level-contributions li {
-    color: rgba(255, 255, 255, 0.45);
-    padding: 0.3rem 0;
-    padding-left: 1.6rem;
-    position: relative;
-    font-size: 0.95rem;
-}
-
-.level-contributions li::before {
-    content: '✦';
-    position: absolute;
-    left: 0;
+    margin-bottom: 0.75rem;
     color: #ffd93d;
 }
 
-.level-links {
-    display: flex;
-    gap: 0.8rem;
-    margin-top: 1rem;
-    flex-wrap: wrap;
+.back-list {
+    list-style: none;
+    padding-left: 0;
 }
 
-.btn-level {
-    padding: 0.4rem 1.4rem;
-    border-radius: 50px;
-    background: rgba(255, 255, 255, 0.04);
-    color: rgba(255, 255, 255, 0.6);
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 700;
-    transition: all 0.3s;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.btn-level:hover {
-    background: rgba(255, 107, 157, 0.15);
-    color: #fff;
-    border-color: #ff6b9d;
-}
-
-/* ========================================
-   👤  SOBRE MÍ (Yoshi Story style)
-   ======================================== */
-.about-section {
-    padding: 4rem 0 2rem;
-}
-
-.about-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 40px;
-    padding: 3rem;
-    border: 2px solid rgba(255, 255, 255, 0.04);
+.back-list li {
+    color: rgba(255, 255, 255, 0.58);
+    padding: 0.35rem 0;
+    padding-left: 1.4rem;
     position: relative;
-    overflow: hidden;
-}
-
-/* Textura de tela/papel (Yoshi) */
-.about-content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-        radial-gradient(circle at 20% 50%, rgba(255, 107, 157, 0.03) 0%, transparent 60%),
-        radial-gradient(circle at 80% 20%, rgba(255, 217, 61, 0.03) 0%, transparent 60%);
-    pointer-events: none;
-}
-
-.about-text h2 {
-    font-size: 2.2rem;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-    position: relative;
-}
-
-.about-text p {
-    color: rgba(255, 255, 255, 0.55);
-    line-height: 1.9;
-    margin-bottom: 1rem;
-    position: relative;
-}
-
-.about-skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    margin-top: 1.5rem;
-    position: relative;
-}
-
-.skill-badge {
-    background: rgba(255, 255, 255, 0.04);
-    padding: 0.5rem 1.6rem;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.6);
-    border: 2px solid rgba(255, 255, 255, 0.04);
-    transition: all 0.3s;
-}
-
-.skill-badge:hover {
-    border-color: #ff6b9d;
-    color: #ffffff;
-    transform: scale(1.05);
-}
-
-.about-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-.about-image-placeholder {
-    width: 260px;
-    height: 260px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #ff6b9d, #ffd93d);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 7rem;
-    animation: floatImage 4s ease-in-out infinite;
-    box-shadow: 0 20px 60px rgba(255, 107, 157, 0.15);
-}
-
-@keyframes floatImage {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-18px) rotate(4deg); }
-}
-
-/* ========================================
-   📬  CONTACTO
-   ======================================== */
-.contact-section {
-    padding: 4rem 0 2rem;
-    text-align: center;
-}
-
-.contact-content {
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.contact-content p {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-}
-
-.contact-links {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.contact-icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.04);
-    border: 2px solid rgba(255, 255, 255, 0.06);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.4);
-    transition: all 0.3s;
-}
-
-.contact-icon:hover {
-    transform: translateY(-6px);
-    border-color: #ff6b9d;
-    color: #ffffff;
-    box-shadow: 0 10px 30px rgba(255, 107, 157, 0.15);
-}
-
-/* ========================================
-   📝  FOOTER
-   ======================================== */
-.footer {
-    text-align: center;
-    padding: 3rem 0 1.5rem;
-    margin-top: 2rem;
-    border-top: 2px solid rgba(255, 255, 255, 0.03);
-    color: rgba(255, 255, 255, 0.2);
-    font-weight: 600;
     font-size: 0.95rem;
 }
 
-/* ========================================
-   ⬆  BOTÓN VOLVER ARRIBA
-   ======================================== */
-.back-to-top {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    width: 54px;
-    height: 54px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #ff6b9d, #ff9a76);
-    border: none;
-    box-shadow: 0 4px 20px rgba(255, 107, 157, 0.35);
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px) scale(0.8);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    z-index: 999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-}
-
-.back-to-top.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0) scale(1);
-}
-
-.back-to-top:hover {
-    transform: translateY(-4px) scale(1.08);
-    box-shadow: 0 8px 30px rgba(255, 107, 157, 0.5);
-}
-
-.back-to-top:active {
-    transform: scale(0.92);
-}
-
-.back-to-top svg {
-    width: 28px;
-    height: 28px;
-    stroke: #ffffff;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-}
-
-/* Efecto de brillo pulsante (Kirby sparkle) */
-.back-to-top::after {
-    content: '';
+.back-list li::before {
+    content: '✦';
     position: absolute;
-    top: -4px;
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #ffd93d, #ff6b9d, #6bcfff);
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.4s;
-}
-
-.back-to-top:hover::after {
-    opacity: 0.5;
-    animation: spinBorder 2s linear infinite;
-}
-
-@keyframes spinBorder {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Responsive del botón */
-@media (max-width: 768px) {
-    .back-to-top {
-        width: 48px;
-        height: 48px;
-        bottom: 1.5rem;
-        right: 1.5rem;
-    }
-    .back-to-top svg {
-        width: 24px;
-        height: 24px;
-    }
-}
-
-@media (max-width: 480px) {
-    .back-to-top {
-        width: 44px;
-        height: 44px;
-        bottom: 1rem;
-        right: 1rem;
-    }
-    .back-to-top svg {
-        width: 20px;
-        height: 20px;
-    }
-}
-/* ========================================
-   🎬  FEATURED PROJECTS (Carrusel)
-   ======================================== */
-.featured-section {
-    padding: 4rem 0 2rem;
-}
-
-.featured-container {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-radius: 40px;
-    padding: 2rem;
-    border: 2px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.3s;
-}
-
-.featured-main {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    align-items: start;
-}
-
-/* Contenedor del video - mantiene proporción 16:9 */
-.featured-video {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* 16:9 */
-    height: 0;
-    overflow: hidden;
-    border-radius: 20px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-    background: #0a0a0a;
-}
-
-/* El video ocupa todo el contenedor sin recortarse */
-.featured-video video,
-.featured-video iframe {
-    position: absolute;
-    top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-    border-radius: 20px;
-    object-fit: contain; /* No recorta, muestra el video completo con bordes negros si es necesario */
-    background: #0a0a0a;
+    color: #ff6b9d;
 }
 
-/* Para compatibilidad */
-.featured-video video {
-    object-fit: contain;
-}
-
-.featured-info {
+.featured-media-column {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
-    padding-left: 4rem;
+    gap: 0.75rem;
 }
 
-.featured-info h3 {
-    font-size: 1.8rem;
-    font-weight: 800;
+.media-arrows {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.75rem;
+    gap: 1rem;
+}
+
+.media-arrow {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.08);
     color: #fff;
-    margin-bottom: 0.2rem;
+    font-size: 1rem;
+    font-weight: 900;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.featured-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
+.media-arrow:hover {
+    background: rgba(255, 107, 157, 0.2);
+    border-color: #ff6b9d;
+    transform: translateY(-2px);
 }
 
-.featured-tags span {
-    background: rgba(255, 255, 255, 0.07);
-    padding: 0.25rem 1rem;
-    border-radius: 50px;
-    font-size: 0.8rem;
+.media-caption {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.9rem;
     font-weight: 700;
-    color: rgba(255, 255, 255, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
 }
 
-.featured-contributions {
-    list-style: none;
-    margin: 0.5rem 0;
+.flip-btn {
+    margin-top: 0.75rem;
+    align-self: flex-start;
 }
 
-.featured-contributions li {
-    color: rgba(255, 255, 255, 0.55);
-    padding: 0.3rem 0;
-    padding-left: 1.6rem;
-    position: relative;
-    font-size: 0.95rem;
-}
-
-.featured-contributions li::before {
-    content: '✦';
-    position: absolute;
-    left: 0;
-    color: #ffd93d;
-}
-
-.featured-links {
-    display: flex;
+.featured-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 0.8rem;
-    flex-wrap: wrap;
-    margin-top: 0.5rem;
 }
 
-/* Miniaturas */
-.featured-thumbnails {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-}
-
-.thumbnail {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    border: 3px solid rgba(255, 255, 255, 0.1);
-    overflow: hidden;
-    cursor: pointer;
-    transition: all 0.3s;
-    padding: 0;
-    background: transparent;
-    flex-shrink: 0;
-}
-
-.thumbnail img {
+.featured-gallery img,
+.featured-gallery video {
     width: 100%;
-    height: 100%;
+    border-radius: 16px;
     object-fit: cover;
-    display: block;
+    min-height: 100px;
 }
 
-.thumbnail:hover {
-    transform: scale(1.08);
-    border-color: rgba(255, 107, 157, 0.4);
-}
-
-.thumbnail.active {
-    border-color: #ff6b9d;
-    box-shadow: 0 0 20px rgba(255, 107, 157, 0.3);
-    transform: scale(1.1);
-}
-
-
-
-/* Responsive */
-@media (max-width: 768px) {
-    .featured-main {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .featured-info h3 {
-        font-size: 1.5rem;
-    }
-
-    .featured-container {
-        padding: 1.5rem;
-    }
-
-    .thumbnail {
-        width: 60px;
-        height: 60px;
-    }
-}
-
-@media (max-width: 480px) {
-    .featured-thumbnails {
-        gap: 0.7rem;
-    }
-
-    .thumbnail {
-        width: 50px;
-        height: 50px;
-    }
-}
-
-/* Miniaturas */
-.featured-thumbnails {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-}
-
-.thumbnail {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    border: 3px solid rgba(255, 255, 255, 0.1);
-    overflow: hidden;
-    cursor: pointer;
-    transition: all 0.3s;
-    padding: 0;
+.featured-gallery img {
     background: transparent;
-    flex-shrink: 0;
 }
 
-.thumbnail img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.thumbnail:hover {
-    transform: scale(1.08);
-    border-color: rgba(255, 107, 157, 0.4);
-}
-
-.thumbnail.active {
-    border-color: #ff6b9d;
-    box-shadow: 0 0 20px rgba(255, 107, 157, 0.3);
-    transform: scale(1.1);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .featured-main {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .featured-info h3 {
-        font-size: 1.5rem;
-    }
-
-    .featured-container {
-        padding: 1.5rem;
-    }
-
-    .thumbnail {
-        width: 60px;
-        height: 60px;
-    }
-}
-
-@media (max-width: 480px) {
-    .featured-thumbnails {
-        gap: 0.7rem;
-    }
-
-    .thumbnail {
-        width: 50px;
-        height: 50px;
-    }
-}
-
-/* ========================================
-   📱  RESPONSIVE
-   ======================================== */
-@media (max-width: 1024px) {
-    .container {
-        padding: 1.5rem;
-    }
-
-    .hero h1 {
-        font-size: 3.2rem;
-    }
+.featured-gallery video {
+    background: #0a0a0a;
 }
 
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.6rem;
-    }
-
-    .hero .subtitle {
-        font-size: 1.2rem;
-    }
-
-    .levels-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .about-content {
-        grid-template-columns: 1fr;
-        padding: 2rem;
-        text-align: center;
-        gap: 2rem;
-    }
-
-    .about-image {
-        order: -1;
-    }
-
-    .about-image-placeholder {
-        width: 180px;
-        height: 180px;
-        font-size: 4.5rem;
-    }
-
-    .nav {
+    .back-header {
         flex-direction: column;
-        text-align: center;
-        gap: 0.5rem;
+        align-items: flex-start;
     }
 
-    .nav-links {
-        justify-content: center;
-        gap: 1.5rem;
-    }
-
-    .section-title {
-        font-size: 2.2rem;
-    }
-
-    .section-subtitle {
-        font-size: 1rem;
-        margin-bottom: 2rem;
-    }
-
-    .contact-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 1.4rem;
+    .flip-btn {
+        align-self: stretch;
     }
 }
 
-@media (max-width: 480px) {
-    .container {
-        padding: 1rem;
-    }
+.featured-info-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
 
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .hero .description {
-        font-size: 1rem;
-    }
-
-    .level-card {
-        padding: 1.5rem;
-    }
-
-    .level-card h3 {
-        font-size: 1.3rem;
-    }
-
-    .btn {
-        padding: 0.6rem 1.8rem;
-        font-size: 0.9rem;
-    }
-
-    .about-image-placeholder {
-        width: 140px;
-        height: 140px;
-        font-size: 3.5rem;
-    }
-
-    .footer {
-        font-size: 0.8rem;
-    }
+.featured-info-heading {
+    color: #ffd93d;
+    font-size: 0.82rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }

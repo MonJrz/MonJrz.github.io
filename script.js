@@ -1,229 +1,236 @@
-
-// =============================================
-// 1. PARALLAX EN ESTRELLAS
-// =============================================
-document.addEventListener('mousemove', (e) => {
-    const stars = document.querySelector('.stars');
-    if (stars) {
-        const x = e.clientX / window.innerWidth;
-        const y = e.clientY / window.innerHeight;
-        stars.style.transform = `translate(${x * 10}px, ${y * 10}px)`;
-    }
-});
-
-// =============================================
-// 2. ANIMACIÓN Y EFECTO 3D EN TARJETAS (level-cards)
-// =============================================
-const cards = document.querySelectorAll('.level-card');
-if (cards.length) {
-    // Animación de entrada con IntersectionObserver
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }, index * 120);
-            }
-        });
-    }, { threshold: 0.1 });
-    cards.forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition =
-            `opacity 0.7s ease ${index * 0.1}s, transform 0.7s ease ${index * 0.1}s`;
-        observer.observe(card);
-    });
-
-    // Efecto de inclinación 3D al pasar el mouse
-    cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const rotateX = (y - centerY) / 20;
-            const rotateY = (x - centerX) / 20;
-            card.style.transform =
-                `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
-        });
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
-        });
-    });
-}
-
-// =============================================
-// 3. BOTÓN "VOLVER ARRIBA"
-// =============================================
-const backToTopBtn = document.getElementById('backToTop');
-if (backToTopBtn) {
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 400) {
-            backToTopBtn.classList.add('show');
-        } else {
-            backToTopBtn.classList.remove('show');
-        }
-    });
-    backToTopBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-}
-
-// =============================================
-// 4. CARRUSEL DE PROYECTOS DESTACADOS
-// =============================================
-// Datos de los proyectos (¡edita con tus juegos!)
-const descriptionEl = document.getElementById('featuredDescription');
 const projects = [
-        {
-        title: "Oil Be Back",
-        description: "Endless runner that takes place in a water park, where the goal is to survive an enemy that must never come into contact with water: a giant drop of oil.",
-        tags: ["Unity", "C#", "Game Mechanics", "3D Art"],
-        contributions: [
-            "Built the spawning system",
-            "Enemy 3D modeling",
-            "Contributed with project integration"
-        ],
-        links: [
-            { text: "✦ Itch.io", url: "https://krostgames.itch.io/oil-be-back" }
-        ],
-        video: "assets/videos/OilBeBack.mp4"
-    },
-    
-    {
-        title: "Toxic Delicacies",
-        description: "A first-person inspection and memory game set in a post-apocalyptic world where mutated food has become the new normal. Identify distorted ingredients, verify each ration against the official catalog, and avoid approving dangerous combinations. Every mistake forces you to consume the meal—and in this world, toxicity comes from the combination, not the ingredients themselves.",
-        tags: ["Unity", "C#", "Game Mechanics"],
-        contributions: [
-            "Built the spawning system",
-            "Implemented a clic-based selection system",
-            "Contributed with 2D art"
-        ],
-        links: [
-            { text: "✦ Itch.io", url: "https://mmsiak.itch.io/toxic-delicacies" }
-        ],
-        video: "assets/videos/ToxicDelicacies.mp4"
-    },
-    {
-        title: "Crazed Potato",
-        description: "Crazed Potato is a puzzle-platformer speedrun prototype where players alternate between a normal and a crazed potato. Dig through terrain in your normal form, then climb walls after being sprayed with pesticide to discover the fastest route through each level.",
-        tags: ["Unity", "C#", "Game Design"],
-        contributions: [
-            "Built the game mechanics",
-            "Created 1 puzzle level",
-            "Designed the art"
-        ],
-        links: [
-            { text: "✦ Itch.io", url: "https://mmsiak.itch.io/crazed-potato" },
-        ],
-        video: "assets/videos/CrazedPotato.mp4"
-    },
-    {
-        title: "The Lost Palette",
-        description: "The Lost Palette is a 2D platformer where you embark on an adventure alongside a magical flame companion that shoots fireballs to defeat enemies. At the beginning of each level, a target number of enemies is set, and your goal is to eliminate them all while navigating the environment",
-        tags: ["Game Mechanics", "UI Logic"],
-        contributions: [
-            "Player movement and damage logic",
-            "Enemy movement and damage logic",
-            "Programming and integration of the UI elements"
-        ],
-        links: [
-            { text: "✦ Itch.io", url: "https://samurainyak.itch.io/the-lost-palette" }
-        ],
-        video: "assets/videos/TheLostPalette.mp4" 
-    }
+  {
+    title: 'Oil Be Back',
+    engine: 'Unity',
+    description: 'Endless runner that takes place in a water park, where the goal is to survive an enemy that must never come into contact with water: a giant drop of oil.',
+    tags: ['Game Mechanics', '3D Art'],
+    contributions: ['Built the spawning system', 'Enemy 3D modeling', 'Contributed with project integration'],
+    links: [{ text: '✦ Itch.io', url: 'https://krostgames.itch.io/oil-be-back' }],
+    media: [
+      { type: 'video', src: 'assets/videos/OilBeBack.mp4', caption: 'Gameplay trailer' },
+      { type: 'image', src: 'assets/images/OilBeBack.png', caption: 'Main splash art' }
+    ],
+    challenges: ['Very limited production time (2.5 days).', 'Movement scripts were using different coordinate directions, causing inconsistent object behavior.'],
+    solutions: ['We chose a simple game concept and I broke the project down into small, manageable tasks.', 'I coordinated with my teammates to agree on the correct movement directions and updated the scripts accordingly.']
+  },
+  {
+    title: 'Toxic Delicacies',
+    engine: 'Unity',
+    description: 'A first-person inspection and memory game set in a post-apocalyptic world where mutated food has become the new normal.',
+    tags: ['Game Mechanics'],
+    contributions: ['Built the spawning system', 'Implemented a click-based selection system', 'Contributed with 2D art'],
+    links: [{ text: '✦ Itch.io', url: 'https://mmsiak.itch.io/toxic-delicacies' }],
+    media: [
+      { type: 'video', src: 'assets/videos/ToxicDelicacies.mp4', caption: 'Gameplay overview' },
+      { type: 'image', src: 'assets/images/ToxicDelicacies.png', caption: 'Title screen' }
+    ],
+    challenges: ['Creating endless gameplay by spawning ingredients without overlapping or appearing in invalid positions.'],
+    solutions: ['Instead of spawning new objects every round, I placed all ingredients in predefined locations and kept them disabled. When a new round started, I simply activated the required objects, making them visible on the plate.']
+  },
+  {
+    title: 'Crazed Potato',
+    engine: 'Unity',
+    description: 'Puzzle-platformer speedrun prototype where players alternate between a normal and a crazed potato.',
+    tags: ['Game Design'],
+    contributions: ['Built the game mechanics', 'Created 1 puzzle level', 'Designed the art'],
+    links: [{ text: '✦ Itch.io', url: 'https://mmsiak.itch.io/crazed-potato' }],
+    media: [
+      { type: 'video', src: 'assets/videos/CrazedPotato.mp4', caption: 'Mechanics showcase' },
+      { type: 'image', src: 'assets/images/SproutedPotato.png', caption: 'Character concept art' }
+    ],
+    challenges: ['Developing a complete game on my own within a limited timeframe.', 'Combining multiple player abilities.'],
+    solutions: ["I kept the game's mechanics and art style intentionally simple to ensure the project was completed on time.", 'I separated player functionality into different components and interfaces, making the code easier to read and maintain.']
+  },
+  {
+    title: 'The Lost Palette',
+    engine: 'Unity',
+    description: '2D platformer where you embark on an adventure alongside a magical flame companion that shoots fireballs to defeat enemies.',
+    tags: ['Game Mechanics', 'UI Logic'],
+    contributions: ['Player movement and damage logic', 'Enemy movement and damage logic', 'Programming and integration of the UI elements'],
+    links: [{ text: '✦ Itch.io', url: 'https://samurainyak.itch.io/the-lost-palette' }],
+    media: [
+      { type: 'video', src: 'assets/videos/TheLostPalette.mp4', caption: 'Level gameplay' },
+      { type: 'image', src: 'assets/images/TheLostPalette.png', caption: 'Cover art' }
+    ],
+    challenges: ['The character would get stuck against walls or platforms while jumping.', 'The player could keep jumping indefinitely without touching the ground.'],
+    solutions: ['I assigned a frictionless physics material to the player so the character would slide smoothly against surfaces.', 'I implemented a ground detection system (isGrounded) that only allowed jumping while the player was on the ground. I also added a jump counter to prevent unlimited jumps.']
+  }
 ];
 
-// Referencias a los elementos del DOM
-const thumbnails = document.querySelectorAll('.thumbnail');
-const videoElement = document.getElementById('featuredVideo');
-const titleEl = document.getElementById('featuredTitle');
-const tagsContainer = document.getElementById('featuredTags');
-const contributionsList = document.getElementById('featuredContributions');
-const linksContainer = document.getElementById('featuredLinks');
+const getElement = (id) => document.getElementById(id);
+const elements = {
+  stars: document.querySelector('.stars'),
+  thumbnails: [...document.querySelectorAll('.thumbnail')],
+  video: getElement('featuredVideo'),
+  image: getElement('featuredImage'),
+  title: getElement('featuredTitle'),
+  description: getElement('featuredDescription'),
+  engine: getElement('featuredEngine'),
+  tags: getElement('featuredTags'),
+  contributions: getElement('featuredContributions'),
+  links: getElement('featuredLinks'),
+  caption: getElement('mediaCaption'),
+  challenges: getElement('featuredChallenges'),
+  solutions: getElement('featuredSolutions'),
+  gallery: getElement('featuredGallery'),
+  card: getElement('projectCard'),
+  backToTop: getElement('backToTop')
+};
 
-// Función para actualizar el carrusel
+const cardInner = elements.card?.querySelector('.project-card-inner');
+const cardFront = elements.card?.querySelector('.project-card-front');
+const cardBack = elements.card?.querySelector('.project-card-back');
+let currentProjectIndex = 0;
+let currentMediaIndex = 0;
+
+function replaceChildrenWithItems(container, items, tagName, className = '') {
+  if (!container) return;
+
+  const fragment = document.createDocumentFragment();
+  items.forEach((item) => {
+    const element = document.createElement(tagName);
+    element.textContent = item;
+    if (className) element.className = className;
+    fragment.append(element);
+  });
+  container.replaceChildren(fragment);
+}
+
+function renderLinks(links) {
+  if (!elements.links) return;
+
+  const fragment = document.createDocumentFragment();
+  links.forEach(({ text, url }) => {
+    const link = document.createElement('a');
+    link.className = 'btn btn-level';
+    link.href = url;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.textContent = text;
+    fragment.append(link);
+  });
+  elements.links.replaceChildren(fragment);
+}
+
+function renderMedia(project) {
+  const media = project.media[currentMediaIndex];
+  if (!media || !elements.video || !elements.image) return;
+
+  const isVideo = media.type === 'video';
+  elements.video.hidden = !isVideo;
+  elements.image.hidden = isVideo;
+
+  if (isVideo) {
+    const source = elements.video.querySelector('source');
+    if (source && source.src !== new URL(media.src, document.baseURI).href) {
+      source.src = media.src;
+      elements.video.load();
+    }
+  } else {
+    elements.image.src = media.src;
+    elements.image.alt = `${project.title}: ${media.caption}`;
+  }
+
+  if (elements.caption) elements.caption.textContent = media.caption;
+}
+
+function renderGallery(project) {
+  if (!elements.gallery) return;
+
+  const fragment = document.createDocumentFragment();
+  project.media.forEach((media) => {
+    const item = document.createElement(media.type === 'video' ? 'video' : 'img');
+    item.src = media.src;
+    item.alt = media.type === 'image' ? `${project.title}: ${media.caption}` : '';
+    if (media.type === 'video') {
+      item.controls = true;
+      item.muted = true;
+      item.playsInline = true;
+    }
+    fragment.append(item);
+  });
+  elements.gallery.replaceChildren(fragment);
+}
+
+function syncProjectCardHeight() {
+  if (!elements.card || !cardInner) return;
+  const activeSide = elements.card.classList.contains('flipped') ? cardBack : cardFront;
+  if (activeSide) cardInner.style.height = `${activeSide.offsetHeight}px`;
+}
+
 function updateFeatured(index) {
-    const project = projects[index];
-    if (!project) return;
+  const project = projects[index];
+  if (!project) return;
 
-    // Actualizar video (MP4 local)
-    if (videoElement) {
-        const source = videoElement.querySelector('source');
-        if (source) {
-            source.src = project.video;
-            videoElement.load(); // recarga el video
-        }
-    }
+  currentProjectIndex = index;
+  currentMediaIndex = 0;
+  if (elements.title) elements.title.textContent = project.title;
+  if (elements.description) elements.description.textContent = project.description;
 
-    // Actualizar título
-    if (titleEl) titleEl.textContent = project.title;
-
-    // Actualizar descripción
-if (descriptionEl) {
-    descriptionEl.textContent = project.description || '';
+  replaceChildrenWithItems(elements.engine, project.engine ? [project.engine] : [], 'span');
+  replaceChildrenWithItems(elements.tags, project.tags, 'span');
+  replaceChildrenWithItems(elements.contributions, project.contributions, 'li');
+  replaceChildrenWithItems(elements.challenges, project.challenges, 'li');
+  replaceChildrenWithItems(elements.solutions, project.solutions, 'li');
+  renderLinks(project.links);
+  renderMedia(project);
+  renderGallery(project);
+  elements.thumbnails.forEach((thumbnail, thumbnailIndex) => {
+    thumbnail.classList.toggle('active', thumbnailIndex === index);
+  });
+  requestAnimationFrame(syncProjectCardHeight);
 }
 
-    // Actualizar etiquetas
-    if (tagsContainer) {
-        tagsContainer.innerHTML = project.tags.map(tag => `<span>${tag}</span>`).join('');
-    }
-
-    // Actualizar contribuciones
-    if (contributionsList) {
-        contributionsList.innerHTML = project.contributions.map(item => `<li>${item}</li>`).join('');
-    }
-
-    // Actualizar enlaces
-    if (linksContainer) {
-        linksContainer.innerHTML = project.links.map(link =>
-            `<a href="${link.url}" target="_blank" class="btn btn-level">${link.text}</a>`
-        ).join('');
-    }
-
-    // Marcar miniatura activa
-    thumbnails.forEach((thumb, i) => {
-        thumb.classList.toggle('active', i === index);
-    });
+function changeMedia(step) {
+  const media = projects[currentProjectIndex]?.media;
+  if (!media?.length) return;
+  currentMediaIndex = (currentMediaIndex + step + media.length) % media.length;
+  renderMedia(projects[currentProjectIndex]);
 }
 
-// Asignar evento a cada miniatura
-thumbnails.forEach((thumb, index) => {
-    thumb.addEventListener('click', () => {
-        updateFeatured(index);
-    });
-});
-
-// Inicializar con el primer proyecto
-if (thumbnails.length > 0) {
-    updateFeatured(0);
+function initializeParallax() {
+  if (!elements.stars) return;
+  document.addEventListener('mousemove', ({ clientX, clientY }) => {
+    const x = (clientX / window.innerWidth) * 10;
+    const y = (clientY / window.innerHeight) * 10;
+    elements.stars.style.transform = `translate(${x}px, ${y}px)`;
+  });
 }
 
-// =============================================
-// 5. PLACEHOLDER PARA VIDEOS (muestra si no carga)
-// =============================================
-const videoPlaceholder = document.getElementById('videoPlaceholder');
-
-if (videoElement && videoPlaceholder) {
-    // Cuando el video se carga correctamente, ocultar placeholder
-    videoElement.addEventListener('loadeddata', () => {
-        videoPlaceholder.classList.add('hidden');
-    });
-
-    // Si hay error al cargar, mostrar placeholder
-    videoElement.addEventListener('error', () => {
-        videoPlaceholder.classList.remove('hidden');
-    });
-
-    // También lo ocultamos cuando el usuario hace clic en play
-    videoElement.addEventListener('play', () => {
-        videoPlaceholder.classList.add('hidden');
-    });
-
-    // Verificar si el video ya está cargado al inicio
-    if (videoElement.readyState >= 3) {
-        videoPlaceholder.classList.add('hidden');
-    }
+function initializeBackToTop() {
+  if (!elements.backToTop) return;
+  window.addEventListener('scroll', () => {
+    elements.backToTop.classList.toggle('show', window.scrollY > 400);
+  }, { passive: true });
+  elements.backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 }
+
+function initializeFeaturedProject() {
+  if (!elements.thumbnails.length) return;
+
+  elements.thumbnails.forEach((thumbnail, index) => {
+    thumbnail.addEventListener('click', () => updateFeatured(index));
+  });
+  getElement('prevMedia')?.addEventListener('click', () => changeMedia(-1));
+  getElement('nextMedia')?.addEventListener('click', () => changeMedia(1));
+  getElement('flipCardBtn')?.addEventListener('click', () => {
+    elements.card?.classList.add('flipped');
+    syncProjectCardHeight();
+  });
+  getElement('flipCardBackBtn')?.addEventListener('click', () => {
+    elements.card?.classList.remove('flipped');
+    syncProjectCardHeight();
+  });
+
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver(syncProjectCardHeight);
+    if (cardFront) observer.observe(cardFront);
+    if (cardBack) observer.observe(cardBack);
+  }
+  window.addEventListener('resize', syncProjectCardHeight);
+  updateFeatured(0);
+}
+
+initializeParallax();
+initializeBackToTop();
+initializeFeaturedProject();

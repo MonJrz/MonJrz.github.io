@@ -1,183 +1,241 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>✨ Mónica's Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>✨ Mónica's Portfolio</title>
 
-    <!-- Nunito Font (round & friendly) -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
-
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-    <!-- STARRY BACKGROUND -->
-    <div class="stars"></div>
+  <div class="stars"></div>
+  <div class="planet-decoration"></div>
+  <div class="planet-decoration"></div>
+  <div class="planet-decoration"></div>
 
-    <!-- DECORATIVE PLANETS -->
-    <div class="planet-decoration"></div>
-    <div class="planet-decoration"></div>
-    <div class="planet-decoration"></div>
+  <div class="sparkle" style="top:10%; left:5%; animation-delay:0s;"></div>
+  <div class="sparkle" style="top:20%; right:8%; animation-delay:0.5s;"></div>
+  <div class="sparkle" style="bottom:30%; left:10%; animation-delay:1s;"></div>
+  <div class="sparkle" style="bottom:40%; right:5%; animation-delay:1.5s;"></div>
+  <div class="sparkle" style="top:50%; left:50%; animation-delay:2s;"></div>
+  <div class="sparkle" style="top:70%; left:80%; animation-delay:2.5s;"></div>
+  <div class="sparkle" style="bottom:15%; right:15%; animation-delay:3s;"></div>
 
-    <!-- TWINKLING SPARKLES -->
-    <div class="sparkle" style="top:10%; left:5%; animation-delay:0s;"></div>
-    <div class="sparkle" style="top:20%; right:8%; animation-delay:0.5s;"></div>
-    <div class="sparkle" style="bottom:30%; left:10%; animation-delay:1s;"></div>
-    <div class="sparkle" style="bottom:40%; right:5%; animation-delay:1.5s;"></div>
-    <div class="sparkle" style="top:50%; left:50%; animation-delay:2s;"></div>
-    <div class="sparkle" style="top:70%; left:80%; animation-delay:2.5s;"></div>
-    <div class="sparkle" style="bottom:15%; right:15%; animation-delay:3s;"></div>
+  <div class="container">
+    <nav class="nav">
+      <!-- <div class="logo">✦ My World</div> -->
+      <ul class="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#levels">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
 
-    <div class="container">
-
-        <!-- ===== NAVIGATION ===== -->
-        <nav class="nav">
-            <div class="logo">✦ My World</div>
-            <ul class="nav-links">
-                <li><a href="#levels">Projects</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-
-        <!-- ===== HERO ===== -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>✨ Mónica Juárez Esparza ✨</h1>
-                <p class="subtitle">🎮 Unity Game Developer</p>
-               <p class="description">
-                     I build cool games with a focus on <span>reliable code</span>. I also do some <span>2D art</span> so I can bring my own projects to life visually. 
-                     I'm currently learning through jams and bootcamps, and while I'm still growing, 
-                     I put real care into <span>player movement</span>, <span>UI logic</span>, and making sure everything feels responsive.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#levels" class="btn btn-primary">✦ View Projects</a>
-                    <a href="#contact" class="btn btn-secondary">✨ Contact</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== LEVELS / PROJECTS (Kirby 64 style) ===== -->
-        <section id="levels">
-<!-- ===== FEATURED PROJECTS (Carrusel) ===== -->
-<section id="featured" class="featured-section">
-    <h2 class="section-title">🎬 Featured Projects</h2>
-    <p class="section-subtitle">Explore my work through this interactive showcase</p>
-
-    <div class="featured-container">
-        <!-- Contenido principal: video (izquierda) + info (derecha) -->
-        <div class="featured-main">
-            <!-- Columna izquierda: video -->
-            <div class="featured-video">
-                <video id="featuredVideo" controls muted playsinline preload="metadata">
-                    <source src="assets/videos/TheLostPalette.mp4" type="video/mp4">
-                    Tu navegador no soporta la reproducción de videos.
-                </video>
-                
-            </div>
-
-            <!-- Columna derecha: información -->
-            <div class="featured-info">
-                <h3 id="featuredTitle">The Lost Palette</h3>
-                <p id="featuredDescription" class="featured-description"></p>
-                <div class="featured-tags" id="featuredTags">
-                    <span>Player Controller</span>
-                    <span>Enemy Logic</span>
-                    <span>UI Logic</span>
-                </div>
-                <ul id="featuredContributions" class="featured-contributions">
-                    <li>Player movement and damage logic</li>
-                    <li>Enemy movement and damage logic</li>
-                    <li>Programming and integration of the UI elements</li>
-                </ul>
-                <div class="featured-links" id="featuredLinks">
-                    <a href="https://samurainyak.itch.io/the-lost-palette" target="_blank" class="btn btn-level">✦ Website</a>
-                </div>
-            </div>
+    <section class="hero">
+      <div class="hero-content">
+        <h1><img src="assets/Titles/MonicaTitle.gif" class="title-gif" alt="Mónica Juárez Esparza"></h1>
+        <p class="subtitle">🎮 Unity Game Developer</p>
+        <div class="hero-buttons">
+          <a href="#levels" class="btn btn-primary">✦ View Projects</a>
+          <a href="#contact" class="btn btn-secondary">✨ Contact</a>
         </div>
+      </div>
+    </section>
 
-        <!-- Miniaturas (carrusel de navegación) -->
-         <div class="featured-thumbnails">
-            <button class="thumbnail active" data-index="0" aria-label="Oil Be Back">
-                <img src="assets/images/OilBeBack.png" alt="OilBeBack">
-            </button>
-            <button class="thumbnail" data-index="1" aria-label="Toxic Delicacies">
-                <img src="assets/images/ToxicDelicacies.png" alt="Toxic Delicacies">
-            </button>
-            <button class="thumbnail" data-index="2" aria-label="Crazed Potato">
-                <img src="assets/images/SproutedPotato.png" alt="Crazed Potato">
-            </button>
-            <button class="thumbnail active" data-index="3" aria-label="The Lost Palette">
-                <img src="assets/images/TheLostPalette.png" alt="The Lost Palette">
-            </button>
-            
-        </div>
+    <section id="work" class="work-section">
+      <h2 class="section-title"><img src="assets/Titles/WhatIDoTitle.gif" class="title-gif title-gif--compact" alt="What I Do"></h2>
+      <p class="section-subtitle">Game development with code, design, and care</p>
 
-    </div>
-</section>
+      <div class="work-content">
+        <p>
+          I build cool games with a focus on <span>reliable code</span>. I also do some <span>2D art</span> so I can bring my own projects to life visually.
+          I'm currently learning through jams and bootcamps, and while I'm still growing,
+          I put real care into <span>player movement</span>, <span>UI logic</span>, and making sure everything feels responsive.
+        </p>
+      </div>
+    </section>
 
-        <!-- ===== ABOUT (Yoshi Story style) ===== -->
-        <section id="about" class="about-section">
-            <h2 class="section-title">💫 About Me</h2>
-            <p class="section-subtitle">A journey of creativity and code</p>
+    <section id="levels" class="featured-section">
+        <h2 class="section-title"><img src="assets/Titles/ProjectsTitle.gif" class="title-gif" alt="Projects"></h2>
+        <p class="section-subtitle">Explore my work through this interactive showcase</p>
 
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>✨ Hi, I'm <span id="name-placeholder">Mónica!</span></h2>
-                    
-                    <p>
-I grew up loving games—Mega Man X, Kirby: The Crystal Shards, Yoshi's Story, Ninja Gaiden—and always wondered how they were made. But I didn't think game dev was possible for me, so I tried other paths: Mechanical Engineering, call centers, even manicure (I loved doing anime nail art!). A Java backend bootcamp got me into coding, but it wasn't until I joined a Unity game dev bootcamp that everything clicked.
+        <div class="featured-container" id="projectCard">
+          <div class="project-card-inner">
 
-Now I'm learning fast through jams and team projects—working on player movement, enemy AI, damage logic, and UI. I'm still not the fastest programmer, but I'm improving every day. My goal is to make platformers and puzzle games that feel as memorable as the classics I grew up with.
+            <div class="project-card-front">
+              <div class="featured-main">
+                <div class="featured-media-column">
+                  <div class="featured-video">
+                    <video id="featuredVideo" controls muted playsinline preload="metadata">
+                      <source src="assets/videos/TheLostPalette.mp4" type="video/mp4">
+                      Tu navegador no soporta la reproducción de videos.
+                    </video>
+                    <img id="featuredImage" src="" alt="" hidden>
+                  </div>
 
-Outside of code, I draw, dance, box, and have seven cats. I love nature documentaries and anything creative.
+                  <div class="media-arrows">
+                    <button id="prevMedia" class="media-arrow" type="button" aria-label="Previous media">◀</button>
+                    <button id="nextMedia" class="media-arrow" type="button" aria-label="Next media">▶</button>
+                  </div>
 
-I'm still growing, but I'm finally on the right track.
-                    </p>
-                    <div class="about-skills">
-                        <span class="skill-badge">✦ Unity</span>
-                        <span class="skill-badge">✦ C#</span>
-                        <span class="skill-badge">✦ Game Design</span>
-                        <span class="skill-badge">✦ 2D Art</span>
+                  <div class="media-caption" id="mediaCaption">Video</div>
+                </div>
+
+                <div class="featured-info">
+                  <h3 id="featuredTitle">The Lost Palette</h3>
+                  <p id="featuredDescription" class="featured-description"></p>
+
+                  <div class="featured-info-group">
+                    <h4 class="featured-info-heading">Engine</h4>
+                    <div class="featured-tags" id="featuredEngine">
+                      <span>Unity</span>
                     </div>
+                  </div>
+
+                  <div class="featured-info-group">
+                    <h4 class="featured-info-heading">Roles</h4>
+                    <div class="featured-tags" id="featuredTags">
+                      <span>Player Controller</span>
+                      <span>Enemy Logic</span>
+                      <span>UI Logic</span>
+                    </div>
+                  </div>
+
+                  <div class="featured-info-group">
+                    <h4 class="featured-info-heading">Contributions</h4>
+                    <ul id="featuredContributions" class="featured-contributions">
+                      <li>Player movement and damage logic</li>
+                      <li>Enemy movement and damage logic</li>
+                      <li>Programming and integration of the UI elements</li>
+                    </ul>
+                  </div>
+
+                  <div class="featured-links" id="featuredLinks">
+                    <a href="https://samurainyak.itch.io/the-lost-palette" target="_blank" class="btn btn-level">✦ Website</a>
+                  </div>
+
+                  <button id="flipCardBtn" class="btn btn-secondary flip-btn" type="button">View details</button>
                 </div>
-                <div class="about-image">
-                    <div class="about-image-placeholder">🌟</div>
-                </div>
+              </div>
+
+              <div class="featured-thumbnails" id="featuredThumbs">
+                <button class="thumbnail active" data-index="0" aria-label="Oil Be Back">
+                  <img src="assets/images/OilBeBack.png" alt="Oil Be Back">
+                </button>
+                <button class="thumbnail" data-index="1" aria-label="Toxic Delicacies">
+                  <img src="assets/images/ToxicDelicacies.png" alt="Toxic Delicacies">
+                </button>
+                <button class="thumbnail" data-index="2" aria-label="Crazed Potato">
+                  <img src="assets/images/SproutedPotato.png" alt="Crazed Potato">
+                </button>
+                <button class="thumbnail" data-index="3" aria-label="The Lost Palette">
+                  <img src="assets/images/TheLostPalette.png" alt="The Lost Palette">
+                </button>
+              </div>
             </div>
-        </section>
 
-        <!-- ===== CONTACT ===== -->
-        <section id="contact" class="contact-section">
-            <h2 class="section-title">📬 Contact</h2>
-            <p class="section-subtitle">Have a magical project in mind?</p>
+            <div class="project-card-back">
+              <div class="back-header">
+                <h3>Project Details</h3>
+                <button id="flipCardBackBtn" class="btn btn-secondary flip-btn" type="button">Back</button>
+              </div>
 
-            <div class="contact-content">
-                <p>
-                    If you like my style and want to collaborate on something special,
-                    I'd love to hear your idea!
-                </p>
-                <div class="contact-links">
-                    <a href="mailto:monicajrzesp@gmail.com" class="contact-icon" title="Email">📧</a>
-                    <a href="https://linkedin.com/monica-alejandra-juarez-esparza" class="contact-icon" title="LinkedIn">💼</a>
-                    <a href="https://github.com/MonJrz" class="contact-icon" title="GitHub">🐙</a>
-                    <a href="https://mmsiak.itch.io/" class="contact-icon" title="Itch.io">🎮</a>
-                </div>
+              <div class="back-block">
+                <h4>Challenges</h4>
+                <ul id="featuredChallenges" class="back-list"></ul>
+              </div>
+
+              <div class="back-block">
+                <h4>Solutions</h4>
+                <ul id="featuredSolutions" class="back-list"></ul>
+              </div>
+
+              <div class="back-block">
+                <h4>Gallery</h4>
+                <div id="featuredGallery" class="featured-gallery"></div>
+              </div>
             </div>
-        </section>
 
-        <!-- ===== FOOTER ===== -->
-        <footer class="footer">
-            <p>✦ Made with ✨ and lots of ☕ • 2026</p>
-        </footer>
+          </div>
+        </div>
+    </section>
 
-    </div>
-<!-- ===== SCRIPTS ===== -->
-<script src="script.js"></script>
+    <section id="about" class="about-section">
+      <h2 class="section-title"><img src="assets/Titles/AboutMeTitle.gif" class="title-gif title-gif--compact" alt="About Me"></h2>
+      <p class="section-subtitle">A journey of creativity and code</p>
+
+      <div class="about-content">
+        <div class="about-text">
+          <h2>✨ Hi, I'm <span id="name-placeholder">Mónica!</span></h2>
+
+          <p>
+            I grew up loving games like Mega Man X, Kirby: The Crystal Shards, Yoshi's Story, Ninja Gaiden, and always wondered how they were made. But I didn't think game dev was possible for me, so I tried other paths: Mechanical Engineering, call centers, even manicure (I loved doing anime nail art!). A Java backend bootcamp got me into coding, but it wasn't until I joined a Unity game dev bootcamp that everything clicked.
+          </p>
+
+          <p>
+            Now I'm learning fast through jams and team projects—working on player movement, enemy AI, damage logic, and UI. I'm still not the fastest programmer, but I'm improving every day. My goal is to make unique games that feel as memorable as the classics I grew up with.
+          </p>
+
+          <p>
+            Outside of code, I draw, dance, box, and have seven cats. I love nature documentaries and anything creative.
+          </p>
+
+          <p>I'm still growing, but I'm finally on the right track.</p>
+
+          <div class="about-skills">
+            <span class="skill-badge">✦ Unity</span>
+            <span class="skill-badge">✦ C#</span>
+            <span class="skill-badge">✦ Game Design</span>
+            <span class="skill-badge">✦ 2D Art</span>
+          </div>
+        </div>
+
+        <div class="about-image">
+          <img src="assets/icons/Character.png" alt="Illustrated portrait of Mónica" class="character-image">
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <h2 class="section-title"><img src="assets/Titles/ContactTitle.gif" class="title-gif title-gif--compact" alt="Contact"></h2>
+      <p class="section-subtitle">Have a magical project in mind?</p>
+
+      <div class="contact-content">
+        <p>
+          If you like my style and want to collaborate on something special,
+          I'd love to hear your idea!
+        </p>
+        <div class="contact-links">
+          <a href="mailto:monicajrzesp@gmail.com" class="contact-icon" title="Email" aria-label="Email">
+            <img src="assets/icons/eMailWhite.gif" alt="" class="contact-icon-image">
+          </a>
+          <a href="https://linkedin.com/monica-alejandra-juarez-esparza" class="contact-icon" title="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <img src="assets/icons/LinkedInWhite.gif" alt="" class="contact-icon-image">
+          </a>
+          <a href="https://github.com/MonJrz" class="contact-icon" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+            <img src="assets/icons/GithubWhite.gif" alt="" class="contact-icon-image">
+          </a>
+          <a href="https://mmsiak.itch.io/" class="contact-icon" title="Itch.io" aria-label="Itch.io" target="_blank" rel="noopener noreferrer">
+            <img src="assets/icons/ItchWhite.gif" alt="" class="contact-icon-image">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>✦ Made with ✨ and lots of ☕ • 2026</p>
+    </footer>
+  </div>
+
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+      <path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+  </button>
+
+  <script src="script.js"></script>
 </body>
-  </body>
 </html>
