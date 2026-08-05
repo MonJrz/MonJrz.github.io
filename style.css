@@ -246,6 +246,10 @@ body {
     scroll-margin-top: 7rem;
 }
 
+#projectCard {
+    scroll-margin-top: 7rem;
+}
+
 /* ========================================
    🚀  HERO (Kirby intro style)
    ======================================== */
@@ -1048,6 +1052,10 @@ body {
     #levels,
     #about,
     #contact {
+        scroll-margin-top: 9rem;
+    }
+
+    #projectCard {
         scroll-margin-top: 9rem;
     }
 

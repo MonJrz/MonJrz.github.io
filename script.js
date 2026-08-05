@@ -245,17 +245,22 @@ function initializeFeaturedProject() {
   if (!elements.thumbnails.length) return;
 
   elements.thumbnails.forEach((thumbnail, index) => {
-    thumbnail.addEventListener('click', () => updateFeatured(index));
+    thumbnail.addEventListener('click', () => {
+      updateFeatured(index);
+      elements.card?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
   });
   getElement('prevMedia')?.addEventListener('click', () => changeMedia(-1));
   getElement('nextMedia')?.addEventListener('click', () => changeMedia(1));
   getElement('flipCardBtn')?.addEventListener('click', () => {
     elements.card?.classList.add('flipped');
     syncProjectCardHeight();
+    elements.card?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
   getElement('flipCardBackBtn')?.addEventListener('click', () => {
     elements.card?.classList.remove('flipped');
     syncProjectCardHeight();
+    elements.card?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 
   if ('ResizeObserver' in window) {
