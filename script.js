@@ -1,5 +1,33 @@
 const projects = [
   {
+    title: 'Splime',
+    engine: 'Unity',
+    description: 'Splime is a cooperative 3D puzzle game where two experimental slimes must work together to escape from a lab.',
+    tags: ['UI Design', 'Game Flow'],
+    contributions: [
+      'Designed the 2D UI elements and visual identity for the game screens.',
+      'Planned the flow between screens to keep the gameplay experience clear and consistent.',
+      'Programmed the screens and their transitions.',
+      'Worked on synchronization between players during UI state changes.'
+    ],
+    links: [{ text: '✦ Itch.io', url: 'https://mmsiak.itch.io/splime' }],
+    media: [
+      { type: 'image', src: 'assets/videos/Splime.gif', caption: 'Gameplay overview' },
+      { type: 'image', src: 'assets/images/Splime/SplimeTitle.png', caption: 'Title screen' },
+      { type: 'image', src: 'assets/images/Splime/Frame 17(4).png', caption: 'Network error ilustration' },
+      { type: 'image', src: 'assets/images/Splime/Frame 26.png', caption: 'Network error symbol' },
+      { type: 'image', src: 'assets/images/Splime/Frame 80(1).png', caption: 'Controls design' },
+      { type: 'image', src: 'assets/images/Splime/Frame 84.png', caption: 'UI elements' }
+    ],
+    challenges: [
+      'Synchronizing the screen flow between connected players in a multiplayer game, especially when loading and transitioning between states.',
+    ],
+    solutions: [
+      'Added loading screens to smooth transitions and give the game time to sync before the match started.',
+    ],
+    updates: ['Working on Single Player mode']
+  },
+  {
     title: 'Deepre',
     engine: 'Unity',
     description: 'A 2D game about Lucila, a girl experiencing depression who is trapped inside her own mind during a dream-like free fall. As positive and negative words appear around her, the player must guide Lucila toward hopeful thoughts while avoiding harmful ones.',
